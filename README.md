@@ -1,4 +1,4 @@
-# Red Hat Partner Tech Days - Feb 2020
+# Red Hat Partner Tech Days
 
 
 Greetings. This is the main page February 2020 Red Hat Partner Tech Days. These 1-day events are run in various cities across North America with the main landing/registration page located here:
