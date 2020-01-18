@@ -1,7 +1,7 @@
 # Introduction
 In this lab, we will build a new RESTful service that uses business rules to make a decision, and exposes it as a REST service. Then we will enhance the Quarkus microservice that we had already built to integrate with the DM REST API to provide a simpler approach to using the DM service. 
 
-# Step 1: Install and Configure Decision Manager (DM)
+# Install and Configure Decision Manager (DM)
 
 In OpenShift 4.2 the installation of PAM / DM is performed primarily through Operators. This provides a very smooth usage model, where as a user, you can just specify that you want a set of capabilities (e.g. PAM or DM), and the operator that is responsible for those capabilities will provision and configure them. 
 
