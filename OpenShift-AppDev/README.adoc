@@ -1,0 +1,12 @@
+[[openshift-quarkus-workshop-labs]]
+Modern Cloud-native development on the OpenShift Container Platform 4
+---------------------------------------------------------------------
+
+[[lab-exercises-table-of-contents]]
+Lab Exercises Table of Contents
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Lab 1. link:quarkus_pages/1_Lab_Instructions.adoc[Quarkus Lab Instructions]
+* Lab 2. link:pages/2_Deploy_Rules_Application_with_PAM_DM.adoc[Deploy Rules Application with PAM/DM ]
+
+
