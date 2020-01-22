@@ -117,7 +117,9 @@ hello quarkus-on-openshift from people-1-9sgsm
 Your hostname (the Kubernetes pod in which your app runs) name will be different from the above.
 ====
 
-So now our app is deployed to OpenShift. You can also see it in the link:https://console-openshift-console.apps.cluster-cinci-5f0d.cinci-5f0d.open.redhat.com[*OpenShift Console*]. Login with your assigned username and password (e.g. *userNN/r3dh4t1!*):
+So now our app is deployed to OpenShift. To access the Openshift Console, view the following page to find the webpage for the workshop you are attending: link:../environments/README.adoc[Openshift Console Lab Environment^].
+
+Use the login credentials conveyed on this page to access your account within Openshift.
 
 image:images/ocplogin.png[ocplogin.png]
 

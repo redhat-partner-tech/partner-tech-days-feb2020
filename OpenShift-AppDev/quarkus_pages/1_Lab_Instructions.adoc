@@ -18,7 +18,9 @@ This workshop is recommended for developers, operations and technical leaders wh
 
 You will be using Red Hat CodeReady Workspaces, an online IDE based on Eclipe Che. *Changes to files are auto-saved every few seconds*, so you don't need to explicitly save changes.
 
-To get started, link:http://codeready-che.apps.cluster-cinci-5f0d.cinci-5f0d.open.redhat.com[*access the Che instance*] and log in using the username and password you've been assigned (e.g. *userNN/passNN*):
+To get started, view the following page and find the Code Ready Console for the workshop you are attending.  *Login* to that environments using the credentials conveyed on the *Lab Environments* page.
+
+link:../environments/README.adoc[*Lab Environments*^]
 
 image:images/login.jpg[login]
 
