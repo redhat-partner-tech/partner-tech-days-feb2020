@@ -132,7 +132,7 @@ Tags:			2
 
 ```
 
-Now, if you go look at the pods, the products are happing spinning up pods and working : 
+Now, if you go look at the pods, the products are happily spinning up pods and working : 
 
 ![Working DM Pods](images/lab22_working_dm_pods.png)
 
