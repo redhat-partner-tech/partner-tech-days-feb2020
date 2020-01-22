@@ -242,7 +242,7 @@ YWRtaW5Vc2VyOlJlZEhhdA==
 * Paste the contents of the body into a file named “violation-data.json” and re-run the DMN curl execution, this time with the proper authentication
 
 
-- ![STOP](https://placehold.it/15/f03c15/000000?text=+) `Congratulations, you just completed Module 2 and have a Decision Service implemented in DMN running on OpenShift, and you interacted with kieserver’s REST APIs 
+![STOP](https://placehold.it/15/008000/000000?text=+) `Congratulations, you just completed Module 2 and have a Decision Service implemented in DMN running on OpenShift, and you interacted with kieserver’s REST APIs 
 `
 
 
