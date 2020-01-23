@@ -245,7 +245,7 @@ YWRtaW5Vc2VyOlJlZEhhdA==
 ![STOP](https://placehold.it/15/008000/000000?text=+) `Congratulations, you just completed Module 2 and have a Decision Service implemented in DMN running on OpenShift, and you interacted with kieserver’s REST APIs 
 `
 
-
+[**NEXT LAB -> Extend Quarkus App**](2_4_Extend_Quarkus_App.md)
 
 
 
