@@ -1,5 +1,4 @@
-# Introduction
-In this lab, we will build a new RESTful service that uses business rules to make a decision, and exposes it as a REST service. Then we will enhance the Quarkus microservice that we had already built to integrate with the DM REST API to provide a simpler approach to using the DM service. 
+
 
 # Install and Configure Decision Manager (DM)
 
@@ -57,3 +56,5 @@ The “environment” parameter here is most important - it specifies how the pr
 ![DM Deployment Configs](images/lab2_dm_deployment_configs.png)
 
 - ![STOP](https://placehold.it/15/f03c15/000000?text=+) `STOP : Do not proceed further, spend 5 minutes to try to figure out what is happening here. `
+
+[**NEXT LAB -> DM Operator Troubleshooting**](2_2_Troubleshoot_Operator.md)

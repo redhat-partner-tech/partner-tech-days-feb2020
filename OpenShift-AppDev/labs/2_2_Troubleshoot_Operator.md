@@ -137,5 +137,8 @@ Now, if you go look at the pods, the products are happily spinning up pods and w
 ![Working DM Pods](images/lab22_working_dm_pods.png)
 
 
+[**NEXT LAB -> DMN Decision Service**](2_3_DMN_Decision_Service.md)
+
+
 
 
