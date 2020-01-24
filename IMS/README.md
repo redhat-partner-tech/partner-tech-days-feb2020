@@ -2,7 +2,9 @@
 Infrastructure Migration Solution 1.2
 ---------------------------------------------------------------------
 
-Blurb
+The Red Hat infrastructure migration solution helps to break the cycle of expensive, long-term commitments inherent to proprietary infrastructure while delivering the necessary tools that can make the mass migration of workloads a snap. 
+
+The solution includes point and click tooling that provides mass migration capabilities, special pricing, and standardized deployment patterns from VMware to Red Hat Virtualization, Red Hat OpenStack Platform, and/or Red Hat Hyperconverged Infrastructure for Virtualization. 
 
 **Link to IMS Lab Environments:**
 - [Partner Tech Days - Raleigh (2/3)](https://example.com)
