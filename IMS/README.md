@@ -11,10 +11,10 @@ The solution includes point and click tooling that provides mass migration capab
 - [Toronto, 2/4](https://example.com)
 - [Montreal, 2/6](https://example.com)
 - [Orlando, 2/6](https://example.com)
-- [Denver, 2/13](https://example.com)
-- [Irvine, 2/18](https://example.com)
-- [Scottsdale, 2/19](https://example.com)
-- [Cincinnati, 2/20](https://example.com)
+- [Denver, 2/13]
+- [Irvine, 2/18]
+- [Scottsdale, 2/19]
+- [Cincinnati, 2/20]
 
 **Lab Notes (Please read):**
 - Since the lab environment is already created for you, skip sections 1-3. 
