@@ -18,7 +18,7 @@ The solution includes point and click tooling that provides mass migration capab
 
 **Lab Notes (Please read):**
 - It will take approximately XX mins to complete this lab
-  - Note that Lab Step y (the actually migration) will take YY mins to complete
+  - Note that Lab Step "7.2. Launch Migration" (the actual migration) will take YY mins to complete
 - Since the lab environment is already created for you, skip sections 1-3. 
 - Start at section 4. Environment
 - In section 5. Getting Started, follow RHTE sub-section
