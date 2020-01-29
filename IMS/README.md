@@ -17,10 +17,12 @@ The solution includes point and click tooling that provides mass migration capab
 - Cincinnati, 2/20
 
 **Lab Notes (Please read):**
+- It will take approximately XX mins to complete this lab
+  - Note that Lab Step y (the actually migration) will take YY mins to complete
 - Since the lab environment is already created for you, skip sections 1-3. 
 - Start at section 4. Environment
 - In section 5. Getting Started, follow RHTE sub-section
-  - Use ssh root@workstation-<YOUR GUID>.rhpds.opentlc.com with the **r3d4t1!** password (instead of ssh lab-user@) 
+  - Use `ssh root@workstation-<YOUR GUID>.rhpds.opentlc.com` with the **r3d4t1!** password (instead of `ssh lab-user@`) 
   - Skip RHPDS sub-sections 1-3 
   - Then, pick up with the CloudForms login page
 - Cloudforms login: **admin / r3d4t1!**
