@@ -72,21 +72,26 @@ The result of this process is a very simple Decision implemented using DMN, a co
 
 ![Deploy Decision Service](images/lab23_deploy_decision_service.png)
 
-6. Explore the REST APIs available through the kieserver
+6. Explore the REST APIs available through the kieserver and Swagger UI
 
 This is where the fun begins - you can now interact with the Decision Model that you deployed through the REST APIs available through kieserver
 
 
   6.1. Install PostMan if you don’t already have it, we will be using it quite a bit
 
-  6.2. Go back to the OpenShift console, and navigate to Networking -> Routes, and copy the URL of the “rhpam-trial-kieserver” route. Paste it into a new browser window, and append /docs to the end of that URL, e.g: https://rhpam-trial-kieserver-pam-dm1.apps.ocp-pam-cluster-1.clusters.thinkjitsu.me/docs/
+  6.2. Go back to the OpenShift console, and navigate to Networking -> Routes, and copy the URL of the “rhpam-trial-kieserver” route. Paste it into a new browser window, and append /docs to the end of that URL, e.g: https://rhpam-trial-kieserver-http-userNN-project.apps.<your-openshift-base-url>/docs/
 
-  6.3. This opens up the Swagger UI console which allows us to play a little bit with the REST 
-APIs. There are many different APIs to explore here, but we will focus on DMN at this time. 
-Click on the DMN models section and pick the “GET” request to /server/containers/containerId/dmn . For this request, we will use “traffic-violation_1.0.0-SNAPSHOT” for the “containerId” parameter (which is a concatenation of the Maven artifactId and version) and “application/json” as the content type. The kieserver prompts for authentication (which we will later deal with) and gives back details about the DMN model: 
+  6.3. This opens up the Swagger UI console which allows us to play a little bit with the REST APIs. There are many different APIs to explore here, but we will focus on DMN at this time. 
+
+Click on the DMN models section and pick the “GET” request to /server/containers/<containerId>/dmn . 
+
+For this request, we will use “traffic-violation_1.0.0-SNAPSHOT” for the “containerId” parameter (which is a concatenation of the Maven artifactId and version) and “application/json” as the content type. 
+
+The kieserver prompts for authentication (you should use your kieserver credentials - "adminUser" / "RedHat") and gives back details about the DMN model: 
 
 
-```j{
+```json 
+{
   "type": "SUCCESS",
   "msg": "OK models successfully retrieved from container 'traffic-violation_1.0.0-SNAPSHOT'",
   "result": {
@@ -137,15 +142,19 @@ Click on the DMN models section and pick the “GET” request to /server/contai
 
 The top of the response gives us the key elements that we care about : 
 * The correct model-namespace value
-* Two inputs : Driver and Violation
+* Two inputs that we will need to provide to invoke the decision service : Driver and Violation
 * Two different decisions that we can trigger “Fine” and “Should driver be suspended?”
 * From inspecting the “Data Model” back in decision central, we can see what properties we can set on the input models
 
   6.4. With that information (and based on the Decision Manager documentation on access.redhat.com), we can now move on to executing the DMN using the POST method body: 
 
+Inputs:
+* containerId  - use "traffic-violation_1.0.0-SNAPSHOT" which is the maven artifact ID of the decision service deployed to the kie server
+* body - copy the the "model-namespace" GUID value  from the previous step (_A4BCA8B8-CF08-433F-93B2-A2598F19ECFF) and use that to replace the <replace-with-model-namespace-id> placeholder below
+
 ```json
 {
-  "model-namespace":"https://github.com/kiegroup/drools/kie-dmn/_A4BCA8B8-CF08-433F-93B2-A2598F19ECFF",
+  "model-namespace":"https://github.com/kiegroup/drools/kie-dmn/<replace-with-model-namespace-id>",
   "model-name":"Traffic Violation",
   "decision-name": "Should the driver be suspended?",
   "decision-id":null,
@@ -225,7 +234,7 @@ The top of the response gives us the key elements that we care about :
   6.5. The swagger UI does give us the command line version to execute (note that I added a “-k” argument to accept the self signed certificate); however, that fails with an “Unauthorized” error. Of course - we didn’t give it credentials (and we did authenticate in the browser to allow the execution from the swagger UI)
 
 ```bash 
-akochnev@localhost quarkus-kieserver-client]$ curl -k -X POST "https://rhpam-trial-kieserver-pam-dm1.apps.ocp-pam-cluster-1.clusters.thinkjitsu.me/services/rest/server/containers/traffic-violation_1.0.0-SNAPSHOT/dmn" -H "accept: application/xml" -H "content-type: application/json" -d "{ \"model-namespace\":\"https://github.com/kiegroup/drools/kie-dmn/_A4BCA8B8-CF08-433F-93B2-A2598F19ECFF\", \"model-name\":\"Traffic Violation\", \"decision-name\": \"Should the driver be suspended?\", \"dmn-context\":{ \"Driver\":{ \"Name\": \"Bob\", \"Age\": \"23\", \"Points\": 2 }, \"Violation\": \t{ \t\t\"Code\": \"speed-stop\", \t\t\"Date\": \"01/01/2019\", \"Type\": \"speed\", \"Speed Limit\": 30, \"Actual Speed\": 45 } }}"
+akochnev@localhost quarkus-kieserver-client]$ curl -k -X POST "https://rhpam-trial-kieserver-pam-dm1.apps.ocp-pam-cluster-1.clusters.<your-openshift-base-url>/services/rest/server/containers/traffic-violation_1.0.0-SNAPSHOT/dmn" -H "accept: application/xml" -H "content-type: application/json" -d "{ \"model-namespace\":\"https://github.com/kiegroup/drools/kie-dmn/_A4BCA8B8-CF08-433F-93B2-A2598F19ECFF\", \"model-name\":\"Traffic Violation\", \"decision-name\": \"Should the driver be suspended?\", \"dmn-context\":{ \"Driver\":{ \"Name\": \"Bob\", \"Age\": \"23\", \"Points\": 2 }, \"Violation\": \t{ \t\t\"Code\": \"speed-stop\", \t\t\"Date\": \"01/01/2019\", \"Type\": \"speed\", \"Speed Limit\": 30, \"Actual Speed\": 45 } }}"
 <html><head><title>Error</title></head><body>Unauthorized</body></html>
 ```
 
@@ -233,14 +242,67 @@ Let's try again:
 * Do base64 encoding on the username/password to allow passing the credentials with basic auth to curl
 
 ```bash
-
-akochnev@localhost quarkus-kieserver-client]$ AUTH=$(echo -ne "adminUser:RedHat" | base64 --wrap 0)
-[akochnev@localhost quarkus-kieserver-client]$ echo $AUTH
+$ AUTH=$(echo -ne "adminUser:RedHat" | base64 --wrap 0)
+$ echo $AUTH
 YWRtaW5Vc2VyOlJlZEhhdA==
 ```
 
 * Paste the contents of the body into a file named “violation-data.json” and re-run the DMN curl execution, this time with the proper authentication
 
+(note that I added a '-k' parameter to ignore the self signed certificate and added a "-d" parameter to reference the file with the body data)
+```bash
+$ curl -X POST "http://rhpam-trial-kieserver-http-user2-project.apps.cluster-nisky-c155.nisky-c155.open.redhat.com/services/rest/server/containers/traffic-violation_1.0.0-SNAPSHOT/dmn" -k -H "Authorization:Basic YWRtaW5Vc2VyOlJlZEhhdA==" -H "accept: application/json" -H "content-type: application/json" --data-binary @violation-data.json
+{
+  "type" : "SUCCESS",
+  "msg" : "OK from container 'traffic-violation_1.0.0-SNAPSHOT'",
+  "result" : {
+    "dmn-evaluation-result" : {
+      "messages" : [ ],
+      "model-namespace" : "https://github.com/kiegroup/drools/kie-dmn/_A4BCA8B8-CF08-433F-93B2-A2598F19ECFF",
+      "model-name" : "Traffic Violation",
+      "decision-name" : "Should the driver be suspended?",
+      "dmn-context" : {
+        "Violation" : {
+          "Type" : "speed",
+          "Speed Limit" : 30,
+          "Actual Speed" : 45,
+          "Code" : "speed-stop",
+          "Date" : "01/01/2019"
+        },
+        "Driver" : {
+          "Points" : 2,
+          "Age" : "23",
+          "Name" : "Bob"
+        },
+        "Fine" : {
+          "Points" : 3,
+          "Amount" : 500
+        },
+        "Should the driver be suspended?" : "No"
+      },
+      "decision-results" : {
+        "_4055D956-1C47-479C-B3F4-BAEB61F1C929" : {
+          "messages" : [ ],
+          "decision-id" : "_4055D956-1C47-479C-B3F4-BAEB61F1C929",
+          "decision-name" : "Fine",
+          "result" : {
+            "Points" : 3,
+            "Amount" : 500
+          },
+          "status" : "SUCCEEDED"
+        },
+        "_8A408366-D8E9-4626-ABF3-5F69AA01F880" : {
+          "messages" : [ ],
+          "decision-id" : "_8A408366-D8E9-4626-ABF3-5F69AA01F880",
+          "decision-name" : "Should the driver be suspended?",
+          "result" : "No",
+          "status" : "SUCCEEDED"
+        }
+      }
+    }
+  }
+}
+```
 
 ![STOP](https://placehold.it/15/008000/000000?text=+) `Congratulations, you just completed Module 2 and have a Decision Service implemented in DMN running on OpenShift, and you interacted with kieserver’s REST APIs 
 `
