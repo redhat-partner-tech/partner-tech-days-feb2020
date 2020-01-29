@@ -5,7 +5,7 @@ It turns out that the Deployment Configs that are responsible for rolling out th
 The first place to look is in the logs of the business automation operator : 
 
 ```json
-[akochnev@localhost quarkus-kieserver-client]$ oc logs business-automation-operator-b76dd6478-8rdwq 
+$ oc logs business-automation-operator-b76dd6478-8rdwq 
 ....
 {"level":"info","ts":1576054074.2177753,"logger":"olm","msg":"Found deployments with status ","stopped":["rhpam-trial-kieserver","rhpam-trial-rhpamcentr"],"starting":[],"ready":[]}
 {"level":"warn","ts":"2019-12-11T08:56:12.898941522Z","logger":"kieapp.controller","msg":"ImageStreamTag openshift/rhpam-businesscentral-rhel8:7.5.1 doesn't exist."}
