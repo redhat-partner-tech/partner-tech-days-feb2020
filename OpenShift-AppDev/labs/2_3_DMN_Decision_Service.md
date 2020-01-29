@@ -1,6 +1,10 @@
 ## Create a DMN decision service
 
-Now that we have all of our components up and running, we can use Decision Manager to build a simple service using DMN 
+Now that we have all of our components up and running, we will use Decision Manager to build a simple service using [DMN](https://access.redhat.com/documentation/en-us/red_hat_process_automation_manager/7.1/html/designing_a_decision_service_using_dmn_models/dmn-con_dmn-models). 
+
+First, a few words about [Decision Manager](https://www.redhat.com/en/technologies/jboss-middleware/decision-manager) and DMN, why would we want to use these tools for our service. There are many domains such as insurance, healthcare, and others where the development teams in an organization need to work very closely with the domain experts. In those circumstances, it is imperative that the business rules and the domain knowledge is extracted from the code of the product, and is made available to the domain experts who can build and evolve complex rules for making decisions. 
+
+DMN is a fully supported standard in Decision Manager, and we will use it to describe a decision that will be made. Decision Manager provides a comprehensive set of tools for building, testing, and deploying DMN models on OpenShift. We will use these capabilities to build a decision service, and then, we will expose that decision using the Decision Manager runtime (kieserver) as a REST service that can be consumed by other services. 
 
 1. Navigate to Networking -> Routes and click through the rhpam-trial-rhpamcentr route. That will take you to the Business Central login screen. Login as : “adminUser” / “RedHat”, then click through to the “Design” section of Business Central
 
@@ -52,15 +56,25 @@ spec:
 
 2. Click through on My Space and click on the “Try Samples” button, choose the “Traffic Violation” project and click “OK” to proceed. 
 
+A space is a logical grouping of projects in Business Central that helps users organize their work. 
+
 ![Show MySpace Project](images/lab23_myspace_details.png)
 
 The result of this process is a very simple Decision implemented using DMN, a couple of data objects, and a few test scenarios. For now, we will focus on working with the DMN model. 
 
-2.  Click through the “Traffic Violation” DMN model. This very simple model shows that there are two inputs into the decision - Driver and Violation, and based on the values provided as inputs, there are two decisions being made, both implemented as decision tables. 
+2.  Click through the “Traffic Violation” DMN model. This very simple model shows that there are two inputs into the decision (indicated by an oval in the decision model): 
+* Driver - details about the driver for which the decision is being made, e.g. such as the driver's name, age, etc. 
+* Violation - information about the specific violation that occurred
+  
+Based on these inputs, the DMN makes two decisions : whether a fine should be applied to the driver, and whether the driver's license should be suspended. Each one of those decisions is implemented in a decision table (indicated by a rectangle in the DMN model)
 
 ![DMN Model](images/lab23_dmn_model.png)
 
+
+
 ![Decision table](images/lab23_decision_table.png)
+
+The decision table encodes a number of rules
 
 3. Play around with the Violation Scenarios and see how TDD is implemented in this space(click the “play” button to see the tests run)
 

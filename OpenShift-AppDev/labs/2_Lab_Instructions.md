@@ -6,8 +6,7 @@ In this lab, we will build a new RESTful service that uses business rules to mak
 
 1. If you do not have a Red Hat developer account, go to https://access.redhat.com/terms-based-registry/ and click on the Register link to create a developer account. 
 
-2. We will be exploring some REST APIs - you can use curl on the command line to explore, but if you can install PostMan (https://www.getpostman.com/) on your local machine, that might make the exploration a bit easier and more visual 
-
+2. We will be exploring some REST APIs - we will be using [curl](https://curl.haxx.se/docs/manpage.html) and the [Swagger UI](https://swagger.io/tools/swagger-ui/) for our services, but  you could also use a tool list PostMan on your workstation (https://www.getpostman.com/) which has a nice GUI . Get familiar with your REST API exploration tool. 
 
 
 [**Next LAB -> DM Operator Setup**](2_1_Operator_Setup.md)

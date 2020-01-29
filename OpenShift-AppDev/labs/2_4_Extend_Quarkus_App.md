@@ -127,9 +127,9 @@ private JsonObject getDmnEvalBody() {
  
        final JsonObject violationInfo = new JsonObject();
        violationInfo.put("Code", "speed-stop");
-       // violationInfo.put("Date","01/01/2019");
        violationInfo.put("Speed Limit", 30);
        violationInfo.put("Actual Speed", 45);
+       violationInfo.put("Type", "speed")
  
        dmnContext.put("Violation", violationInfo);
  
@@ -409,7 +409,7 @@ $ curl "http://people-userNN-project.apps.<your-base-cluster-url>/violation/chec
 ```
 
 So, to summarize : we extended our Quarkus app to integrate with a Decision Service that was built using DMN and Decision Tables
-1. The final app source code is available on github at https://github.com/akochnev/pamdm-quarkus-lab (if you run into issues with any of the piecemeal source code) 
+1. The full source code for the Decision Manager integration on github at https://github.com/akochnev/quarkus-workshop-labs/tree/ak-pamdm-exttras (if you run into issues with any of the piecemeal source code) 
 
   ![Congratulations](https://placehold.it/15/008000/000000?text=+) `Congratulations, you just completed the integration of the Quarkus lab and the DMN Decision Service
 `

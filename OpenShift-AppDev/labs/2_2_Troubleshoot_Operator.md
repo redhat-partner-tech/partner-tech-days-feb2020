@@ -21,7 +21,7 @@ The first place to look is in the logs of the business automation operator :
 .......
 ```
 
-No errors here, the operator seems to be chugging along with no issues, yet nothing is deploying. 
+No errors here, the operator seems to be chugging along with no issues, yet no pods are deploying. 
 
 Investigating the “Events” tabs on both the operator, on the Deployment Config and on the Project gives no hints as to why things are not progressing as expected. No errors anywhere : 
 
@@ -31,7 +31,7 @@ The best tip for what’s wrong comes if you tried to force the rollout of the D
 
 ![Unresolved Images](images/lab2_unresolved_images.png)
 
-With this information, you can investigate the image stream, and voila ! Turns out that the cluster is unable to authenticate to the container registry so that it could pull the images that it needs. 
+With this information, you can investigate the image stream, and voila ! Turns out that when the cluster attempts to pull down the kieserver and Business Central container images from the image registry (registry.redhat.io), it is unable to authenticate to the container registry. The reason for that is that the Red Hat container registry is available to authenticated users only, and the custom resource (or the operator) does not have those credentials.
 
 ![Imagestream Error](images/lab2_imagestream_error.png)
 
@@ -91,7 +91,7 @@ In order to fix this issue we will need an account that can authenticate with th
 You do want to use a service account here (and not your own password), because you don’t want to put your own passwords into the cluster configuration: 
 ![Registry Service Account](images/lab22_registry_svc_account.png)
 
-1. This process generates a weirdly looking username (e.g. “11009103|userNN-pam-dm1-install “ in my case) and a token for authentication. Run the command below, substituting the token and your email ( you might want to create this command in a text window first to get all the values right)
+2. This process generates a weirdly looking username (e.g. “11009103|userNN-pam-dm1-install “ in my case) and a token for authentication. Run the command below, substituting the token and your email ( you might want to create this command in a text window first to get all the values right)
 ```bash
 oc create secret docker-registry userNN-pamdm1-rhreg-secret --docker-server=registry.redhat.io --docker-username="99999|your-service-account-changeme" --docker-password="eyJh.....snipped...JuzTo0" --docker-email="your-email@yourdomain.com"
 ```
