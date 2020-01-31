@@ -8,9 +8,9 @@ The solution includes point and click tooling that provides mass migration capab
 
 **IMS Open Lab Environments:**
 - [Raleigh, 2/3](https://example.com)
-- [Toronto, 2/4](https://example.com)
-- [Montreal, 2/6](https://example.com)
-- [Orlando, 2/6](https://example.com)
+- Toronto, 2/4
+- Montreal, 2/6
+- Orlando, 2/6
 - Denver, 2/13
 - Irvine, 2/18
 - Scottsdale, 2/19
