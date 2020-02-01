@@ -25,14 +25,14 @@ oc login https://$KUBERNETES_SERVICE_HOST:$KUBERNETES_SERVICE_PORT --insecure-sk
 
 Enter your username and password assigned to you:
 
-    Username: *userNN*
+    Username: "userNN"
 
-    Password: *r3dh4t1!*
+    Password: "r3dh4t1!"
 
 
 [NOTE]
 ====
-Use the username and password you were assigned by the instructor.
+Use the username and password you were assigned by the instructor ( possibly the values above, without the quotes )
 ====
 
 You should see:
