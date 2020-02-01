@@ -8,7 +8,7 @@ In OpenShift 4.2 the installation of Process Automation Manager (PAM) or Decisio
 
 
 
-2. As your privileged user, navigate to the **Catalog -> Operator Hub** section, and search for Automation in the search box.
+2. As your privileged user, navigate to the **Catalog -> Operator Hub** section, and search for **Automation** in the search box.
 
 ![OperatorHub](images/lab2_operatorhub.png)
 
@@ -58,14 +58,14 @@ spec:
 
 
 7. Now, stop and explore - let's see how the product is running in OpenShift:
-* First click on the blue rhpam-trial KieApp. You will see some summary information about the application the operator is creating
+* First click on the blue **rhpam-trial** KieApp. You will see some summary information about the application the operator is creating
 ![KieApp Details](images/lab21_kieapp_details.png)
 
-* Then select the resource tab and observe the many resources that just got created in the project. If you had tried to install Decision Manager on your own, you would have had to create all of these resources on your own and would have had to make sure that they all work together as they should. The Business Automation operator did all of that work for you based on the custom KieApp resource.
+* Then select the **Resources** tab and observe the many resources that just got created in the project. If you had tried to install Decision Manager on your own, you would have had to create all of these resources on your own and would have had to make sure that they all work together as they should. The Business Automation operator did all of that work for you based on the custom KieApp resource.
 
 ![BA operator resources](images/lab2_ba_operator_resources.png)
 
-* Observe the **Workloads** -> **Deployment Configs**  in the project. Note that the **Status** column indicates that they have deployed **0 of 1 pods**.
+* On the left click on the **Workloads** -> **Deployment Configs**  in the project. Note that the **Status** column indicates that they have deployed **0 of 1 pods**.
 
 ![DM Deployment Configs](images/lab2_dm_deployment_configs.png)
 
