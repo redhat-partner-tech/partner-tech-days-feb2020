@@ -272,7 +272,7 @@ private JsonObject getDmnEvalBody(final int age, final int points, final int act
 
 Finally, just as before, don't forget to run **Assistant** -> **Organize Imports** to sort out any missing imports. 
 
-10. Now, I can run violation checks through my new API direction using params from the command line : 
+10. Now, I can run violation checks through my new API directly using URL params from the command line : 
 
 ( note that I put the URL in quotes, otherwise bash process the '&' as a separate command) 
 ```bash
