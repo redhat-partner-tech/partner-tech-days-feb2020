@@ -1,5 +1,9 @@
 # Introduction
+<<<<<<< HEAD
 In this lab, we will use Red Hat Decision Manager to build a decision service using business rules to determine whether a driver needs to be fined and the his/her license suspended in a traffic violation scenario,  we will deploy it to OpenShift , then test it using its REST interface. Then, we will enhance the Quarkus "people" microservice that we had already built to integrate with the Decision Manager REST API to provide a simpler interface to invoking the Traffic Violation service. 
+=======
+In this lab, we will build a new RESTful service that uses business rules to make a decision, and exposes it as a REST service. Then we will enhance the Quarkus microservice that we had already built to integrate with the DM REST API to provide a simpler approach to using the DM service.
+>>>>>>> master
 
 
 # Prerequisites

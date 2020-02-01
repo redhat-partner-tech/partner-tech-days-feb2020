@@ -60,6 +60,8 @@ spec:
 
 3. A space is a logical grouping of projects in Business Central that helps users organize their work. Click on the **My Space** space. 
 
+A space is a logical grouping of projects in Business Central that helps users organize their work. 
+
 ![Show MySpace Project](images/lab23_myspace_details.png)
 
 4. On the space details page, click on the “Try Samples” button, choose the “Traffic Violation” project and click “OK” to proceed with the import. 
@@ -80,6 +82,8 @@ The result of this process is a very simple Decision implemented using DMN, a co
 Based on these inputs, the DMN makes two decisions : whether a fine should be applied to the driver, and whether the driver's license should be suspended. Each one of those decisions is implemented in a decision table (indicated by a rectangle in the DMN model)
 
 ![DMN Model](images/lab23_dmn_model.png)
+
+
 
 ![Decision table](images/lab23_decision_table.png)
 
@@ -190,9 +194,13 @@ Inputs:
 * **containerId**  - use "traffic-violation_1.0.0-SNAPSHOT" which is the maven artifact ID of the decision service deployed to the kie server
 * *body* - copy the the "model-namespace" GUID value  from the previous step (_A4BCA8B8-CF08-433F-93B2-A2598F19ECFF) and use that to replace the <replace-with-model-namespace-id> placeholder below
 
+Inputs:
+* containerId  - use "traffic-violation_1.0.0-SNAPSHOT" which is the maven artifact ID of the decision service deployed to the kie server
+* body - copy the the "model-namespace" GUID value  from the previous step (_A4BCA8B8-CF08-433F-93B2-A2598F19ECFF) and use that to replace the <replace-with-model-namespace-id> placeholder below
+
 ```json
 {
-  "model-namespace":"https://github.com/kiegroup/drools/kie-dmn/_A4BCA8B8-CF08-433F-93B2-A2598F19ECFF",
+  "model-namespace":"https://github.com/kiegroup/drools/kie-dmn/<replace-with-model-namespace-id>",
   "model-name":"Traffic Violation",
   "decision-name": "Should the driver be suspended?",
   "decision-id":null,
