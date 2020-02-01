@@ -3,8 +3,8 @@ Lab Environments
 ~~~~~~~~~~~~~~~~
 
 ....
-OpenShift credentials for attendees: *userNN / r3dh4t1!*
-CodeReady Workspaces credentials for attendees: *userNN / passNN*
+OpenShift credentials for attendees: userNN / r3dh4t1!
+CodeReady Workspaces credentials for attendees: userNN / passNN
 ....
 
 * *Raleigh* : February 3

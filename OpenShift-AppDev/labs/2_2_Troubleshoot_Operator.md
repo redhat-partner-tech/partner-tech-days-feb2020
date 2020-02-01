@@ -2,10 +2,10 @@
 
 It turns out that the Deployment Configs that are responsible for rolling out the necessary pods are unable to create the necessary pods for the installation. The number of pods for both deployment configs continues staying at “0 of 1” and the installation is not proceeding. 
 
-The first place to look is in the logs of the business automation operator: 
+The first place to look is in the logs of the business automation operator : 
 
 ```json
-[akochnev@localhost quarkus-kieserver-client]$ oc logs business-automation-operator-b76dd6478-8rdwq 
+$ oc logs business-automation-operator-b76dd6478-8rdwq 
 ....
 {"level":"info","ts":1576054074.2177753,"logger":"olm","msg":"Found deployments with status ","stopped":["rhpam-trial-kieserver","rhpam-trial-rhpamcentr"],"starting":[],"ready":[]}
 {"level":"warn","ts":"2019-12-11T08:56:12.898941522Z","logger":"kieapp.controller","msg":"ImageStreamTag openshift/rhpam-businesscentral-rhel8:7.5.1 doesn't exist."}
@@ -21,7 +21,7 @@ The first place to look is in the logs of the business automation operator:
 .......
 ```
 
-No errors here, the operator seems to be chugging along with no issues, yet nothing is deploying. 
+No errors here, the operator seems to be chugging along with no issues, yet no pods are deploying. 
 
 Investigating the “Events” tabs on both the operator, on the Deployment Config and on the Project gives no hints as to why things are not progressing as expected. No errors anywhere : 
 
@@ -31,7 +31,7 @@ The best tip for what’s wrong comes if you tried to force the rollout of the D
 
 ![Unresolved Images](images/lab2_unresolved_images.png)
 
-With this information, you can investigate the image stream, and voila ! Turns out that the cluster is unable to authenticate to the container registry so that it could pull the images that it needs. 
+With this information, you can investigate the image stream, and voila ! Turns out that when the cluster attempts to pull down the kieserver and Business Central container images from the image registry (registry.redhat.io), it is unable to authenticate to the container registry. The reason for that is that the Red Hat container registry is available to authenticated users only, and the custom resource (or the operator) does not have those credentials.
 
 ![Imagestream Error](images/lab2_imagestream_error.png)
 
@@ -42,7 +42,7 @@ kind: ImageStream
 apiVersion: image.openshift.io/v1
 metadata:
  name: rhpam-kieserver-rhel8
- namespace: pam-dm1
+ namespace: userNN-pam-dm1
  selfLink: >-
    /apis/image.openshift.io/v1/namespaces/pam-dm1/imagestreams/rhpam-kieserver-rhel8
  uid: e98c73cd-1bf2-11ea-8a25-0a580a800019
@@ -86,18 +86,20 @@ status:
 
 In order to fix this issue we will need an account that can authenticate with the image registry and pull images, and configure that account in our project
 
-1. Navigate to https://access.redhat.com/terms-based-registry/ , log in with your Red Hat account, and create a new Service Account. You do want to use a service account here (and not your own password), because you don’t want to put your own passwords into the cluster configuration: 
+1. Navigate to https://access.redhat.com/terms-based-registry/ , log in with your Red Hat account, and create a new Service Account. If you don't have a Red Hat account through your company, you can click the "Register" link and register for a developer account using your personal email address. 
+  
+You do want to use a service account here (and not your own password), because you don’t want to put your own passwords into the cluster configuration: 
 ![Registry Service Account](images/lab22_registry_svc_account.png)
 
-2. This process generates a weirdly looking username (e.g. “11009103|ak-vizuri-install “ in my case) and a token for authentication. Run the command below, substituting the token and your email 
+2. This process generates a weirdly looking username (e.g. “11009103|userNN-pam-dm1-install “ in my case) and a token for authentication. Run the command below, substituting the token and your email ( you might want to create this command in a text window first to get all the values right)
 ```bash
-oc create secret docker-registry vz-rhreg-secret --docker-server=registry.redhat.io --docker-username="99999|your-service-account-changeme" --docker-password="eyJh.....snipped...JuzTo0" --docker-email="your-email@redhat.com"
+oc create secret docker-registry userNN-pamdm1-rhreg-secret --docker-server=registry.redhat.io --docker-username="99999|your-service-account-changeme" --docker-password="eyJh.....snipped...JuzTo0" --docker-email="your-email@yourdomain.com"
 ```
 
 3. Add the secret to the default service account in your project so that it can use this secret for pulling from the registry
 
 ```bash
-oc secrets link default vz-rhreg-secret --for=pull
+oc secrets link default userNN-pamdm1-rhreg-secret --for=pull
 ```
 
 4. Now, re-import the images on the command line
@@ -116,7 +118,7 @@ Image Lookup:		local=false
 ```
 
 ```bash
-akochnev@localhost quarkus-kieserver-client]$ oc import-image rhpam-kieserver-rhel8 --from=registry.redhat.io/rhpam-7/rhpam-kieserver-rhel8 --all --confirm
+oc import-image rhpam-kieserver-rhel8 --from=registry.redhat.io/rhpam-7/rhpam-kieserver-rhel8 --all --confirm
 imagestream.image.openshift.io/rhpam-kieserver-rhel8 imported
 
 Name:			rhpam-kieserver-rhel8
@@ -136,6 +138,7 @@ Now, if you go look at the pods, the products are happily spinning up pods and w
 
 ![Working DM Pods](images/lab22_working_dm_pods.png)
 
+Wait until all pods in the project are in a Running state before proceding to the next lab
 
 [**NEXT LAB -> DMN Decision Service**](2_3_DMN_Decision_Service.md)
 
