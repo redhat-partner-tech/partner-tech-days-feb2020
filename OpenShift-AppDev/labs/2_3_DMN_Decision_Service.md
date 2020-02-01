@@ -1,16 +1,16 @@
 ## Create a DMN decision service
 
-Now that we have all of our components up and running, we will use Decision Manager to build a simple service using [DMN](https://access.redhat.com/documentation/en-us/red_hat_process_automation_manager/7.1/html/designing_a_decision_service_using_dmn_models/dmn-con_dmn-models). 
+Now that we have all of our components up and running, we will use Decision Manager to build a simple service using [DMN](https://access.redhat.com/documentation/en-us/red_hat_process_automation_manager/7.1/html/designing_a_decision_service_using_dmn_models/dmn-con_dmn-models).
 
-First, a few words about [Decision Manager](https://www.redhat.com/en/technologies/jboss-middleware/decision-manager) and DMN, and why would we want to use these tools for our service. There are many domains such as insurance, healthcare, and others where the development teams in an organization need to work very closely with the domain experts. In those circumstances, it is imperative that the business rules and the domain knowledge is extracted from the code of the product, and is made available to the domain experts who can build and evolve complex rules for making decisions. 
+First, a few words about [Decision Manager](https://www.redhat.com/en/technologies/jboss-middleware/decision-manager) and DMN, and why would we want to use these tools for our service. There are many domains such as insurance, healthcare, and others where the development teams in an organization need to work very closely with the domain experts. In those circumstances, it is imperative that the business rules and the domain knowledge is extracted from the code of the product, and is made available to the domain experts who can build and evolve complex rules for making decisions.
 
-DMN is a fully supported standard in Decision Manager, and we will use it to describe a decision that will be made. Decision Manager provides a comprehensive set of tools for building, testing, and deploying DMN models on OpenShift. We will use these capabilities to build a decision service, and then, we will expose that decision using the Decision Manager runtime (kieserver) as a REST service that can be consumed by other services. 
+DMN is a fully supported standard in Decision Manager, and we will use it to describe a decision that will be made. Decision Manager provides a comprehensive set of tools for building, testing, and deploying DMN models on OpenShift. We will use these capabilities to build a decision service, and then, we will expose that decision using the Decision Manager runtime (kieserver) as a REST service that can be consumed by other services.
 
-1. Navigate to Networking -> Routes and click through the *rhpam-trial-rhpamcentr* route. 
-  
+1. Navigate to **Networking -> Routes** and click through the **rhpam-trial-rhpamcentr** route.
+
 ![Business Central Route](images/lab23_bizcentral_route.png)
 
-2. That will take you to the Business Central login screen. Login as : “adminUser” / “RedHat”, then click through to the “Design” section of Business Central
+2. That will take you to the Business Central login screen. Login as : **“adminUser” / “RedHat”**, then click through to the **“Design”** section of Business Central
 
 ![Open Business Central](images/lab23_open_bizcentral.png)
 
@@ -58,27 +58,27 @@ spec:
  version: 7.5.1
 ```
 
-3. A space is a logical grouping of projects in Business Central that helps users organize their work. Click on the **My Space** space. 
+3. A space is a logical grouping of projects in Business Central that helps users organize their work. Click on the **My Space** space.
 
-A space is a logical grouping of projects in Business Central that helps users organize their work. 
+A space is a logical grouping of projects in Business Central that helps users organize their work.
 
 ![Show MySpace Project](images/lab23_myspace_details.png)
 
-4. On the space details page, click on the “Try Samples” button, choose the “Traffic Violation” project and click “OK” to proceed with the import. 
+4. On the space details page, click on the “Try Samples” button, choose the “Traffic Violation” project and click “OK” to proceed with the import.
 
 ![Try Samples](images/lab23_try_samples.png)
 
 ![Traffic Violation](images/lab23_traffic_violation_sample.png)
 
 
-The result of this process is a very simple Decision implemented using DMN, a couple of data objects, and a few test scenarios. For now, we will focus on working with the DMN model. 
+The result of this process is a very simple Decision implemented using DMN, a couple of data objects, and a few test scenarios. For now, we will focus on working with the DMN model.
 
 ![Traffic Violation Model](images/lab23_traffic_violation_model.png)
 
-5.  Click through the **Traffic Violation** DMN model. This very simple model shows that there are two inputs into the decision (indicated by an oval in the decision model): 
-* Driver - details about the driver for which the decision is being made, e.g. such as the driver's name, age, etc. 
+5.  Click through the **Traffic Violation** DMN model. This very simple model shows that there are two inputs into the decision (indicated by an oval in the decision model):
+* Driver - details about the driver for which the decision is being made, e.g. such as the driver's name, age, etc.
 * Violation - information about the specific violation that occurred
-  
+
 Based on these inputs, the DMN makes two decisions : whether a fine should be applied to the driver, and whether the driver's license should be suspended. Each one of those decisions is implemented in a decision table (indicated by a rectangle in the DMN model)
 
 ![DMN Model](images/lab23_dmn_model.png)
@@ -96,9 +96,9 @@ The decision table encodes a number of rules with the specific data points that 
 7. Whenever you’re satisfied with the logic of the model, navigate back to the main **Traffic Violation** assets screen, click on the Build button, and then on the Deploy Button. You should see some green success messages indicating that the decision is successfully deployed
 
 ![Decision Model Build Deploy](images/lab23_build_deploy.png)
-  
 
-8. Now, navigate to the **Menu** -> **Deploy** -> **Execution servers** of Business Central. You will now observer that the Traffic Violation decision is deployed to the kieservers and that it can be started/stopped, etc. 
+
+8. Now, navigate to the **Menu** -> **Deploy** -> **Execution servers** of Business Central. You will now observer that the Traffic Violation decision is deployed to the kieservers and that it can be started/stopped, etc.
 
 ![Deploy Decision Service](images/lab23_deploy_decision_service.png)
 
@@ -111,7 +111,7 @@ This is where the fun begins - you can now interact with the Decision Model that
 ![KieServer Docs URL](images/lab23_kieserver_docs_url.png)
 
 
-2. This opens up the Swagger UI console which allows us to play a little bit with the REST APIs. There are many different APIs to explore here, but we will focus on DMN at this time. 
+2. This opens up the Swagger UI console which allows us to play a little bit with the REST APIs. There are many different APIs to explore here, but we will focus on DMN at this time.
 
 ![KieServer DMN Models Swagger UI](images/lab23_swagger_ui.png)
 
@@ -121,13 +121,13 @@ Click on the DMN models section and pick the “GET” request to /server/contai
 
 
 3. For this request, we will use **traffic-violation_1.0.0-SNAPSHOT** for the **containerId** parameter (which is a concatenation of the Maven artifactId and version) and “application/json” as the content type, then click the **Execute** button.
-   
+
 ![DMN Get Tryout](images/lab23_dmn_tryout.png)
 
-4. The kieserver prompts for authentication (you should use your kieserver credentials - "adminUser" / "RedHat") and gives back details about the DMN model: 
+4. The kieserver prompts for authentication (you should use your kieserver credentials - "adminUser" / "RedHat") and gives back details about the DMN model:
 
 
-```json 
+```json
 {
   "type": "SUCCESS",
   "msg": "OK models successfully retrieved from container 'traffic-violation_1.0.0-SNAPSHOT'",
@@ -168,7 +168,7 @@ Click on the DMN models section and pick the “GET” request to /server/contai
               }
             }
           ],
-         …. Snipped for brevity … 
+         …. Snipped for brevity …
           "decisionServices": []
         }
       ]
@@ -177,7 +177,7 @@ Click on the DMN models section and pick the “GET” request to /server/contai
 }
 ```
 
-The top of the response gives us the key elements that we care about : 
+The top of the response gives us the key elements that we care about :
 * The correct **model-namespace** value
 * **Two inputs** that we will need to provide to invoke the decision service : *Driver* and *Violation*
 * **Two different decisions** that we can trigger *“Fine”* and *“Should driver be suspended?”*
@@ -187,7 +187,7 @@ The top of the response gives us the key elements that we care about :
 
 
 5. With that information (and based on the Decision Manager documentation), we can now move on to executing the DMN using the POST method body in the Swagger UI:
-   
+
 
 
 Inputs:
@@ -222,7 +222,7 @@ Inputs:
 ```
 ![DMN Execute Post](images/lab23_execute_dmn_post.png)
 
-… and the kieserver , obligingly responds with the decision … 
+… and the kieserver , obligingly responds with the decision …
 
 ```json
 
@@ -280,7 +280,7 @@ Inputs:
 
 6. The swagger UI does give us the command line version to execute (note that I added a “-k” argument to accept the self signed certificate); however, that fails with an “Unauthorized” error. Of course - we didn’t give it credentials (and we did authenticate in the browser to allow the execution from the swagger UI)
 
-```bash 
+```bash
 akochnev@localhost quarkus-kieserver-client]$ curl -k -X POST "https://rhpam-trial-kieserver-pam-dm1.apps.ocp-pam-cluster-1.clusters.<your-openshift-base-url>/services/rest/server/containers/traffic-violation_1.0.0-SNAPSHOT/dmn" -H "accept: application/xml" -H "content-type: application/json" -d "{ \"model-namespace\":\"https://github.com/kiegroup/drools/kie-dmn/_A4BCA8B8-CF08-433F-93B2-A2598F19ECFF\", \"model-name\":\"Traffic Violation\", \"decision-name\": \"Should the driver be suspended?\", \"dmn-context\":{ \"Driver\":{ \"Name\": \"Bob\", \"Age\": \"23\", \"Points\": 2 }, \"Violation\": \t{ \t\t\"Code\": \"speed-stop\", \t\t\"Date\": \"01/01/2019\", \"Type\": \"speed\", \"Speed Limit\": 30, \"Actual Speed\": 45 } }}"
 <html><head><title>Error</title></head><body>Unauthorized</body></html>
 ```
@@ -351,7 +351,7 @@ $ curl -X POST "http://rhpam-trial-kieserver-http-user2-project.apps.cluster-nis
 }
 ```
 
-![STOP](https://placehold.it/15/008000/000000?text=+) `Congratulations, you just completed Module 2 and have a Decision Service implemented in DMN running on OpenShift, and you interacted with kieserver’s REST APIs 
+![STOP](https://placehold.it/15/008000/000000?text=+) `Congratulations, you just completed Module 2 and have a Decision Service implemented in DMN running on OpenShift, and you interacted with kieserver’s REST APIs
 `
 
 [**NEXT LAB -> Extend Quarkus App**](2_4_Extend_Quarkus_App.md)
