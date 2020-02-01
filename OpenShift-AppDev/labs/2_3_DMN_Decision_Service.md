@@ -58,7 +58,8 @@ spec:
  version: 7.5.1
 ```
 
-3. A space is a logical grouping of projects in Business Central that helps users organize their work. Click on the **My Space** space.
+3. A space is a logical grouping of projects in Business Central that helps users organize their work. Click on **Menu->Projects** to display the available projects, then click on the **My Space** space.
+![Show Menu Project](images/dm_menu_projects.png)
 
 A space is a logical grouping of projects in Business Central that helps users organize their work.
 
