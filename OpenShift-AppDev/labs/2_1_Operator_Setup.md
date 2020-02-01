@@ -8,7 +8,7 @@ In OpenShift 4.2 the installation of Process Automation Manager (PAM) or Decisio
 
 
 
-2. As your privileged user, navigate to the *Catalog -> Operator Hub* section, and search for Automation in the search box.
+2. As your privileged user, navigate to the **Catalog -> Operator Hub** section, and search for Automation in the search box.
 
 ![OperatorHub](images/lab2_operatorhub.png)
 
