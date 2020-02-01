@@ -434,7 +434,7 @@ $ curl "http://people-userNN-project.apps.<your-base-cluster-url>/violation/chec
 
 So, to summarize : we extended our Quarkus app to integrate with a Decision Service that was built using DMN and Decision Tables
 
-**NOTE**:  The full source code for the Decision Manager integration on github at https://github.com/akochnev/quarkus-workshop-labs/tree/ak-quarkus-dm-completed (if you run into issues with any of the piecemeal source code) 
+**NOTE**:  The full source code for the Decision Manager integration on github at https://github.com/redhat-partner-tech/partner-tech-days-feb2020/tree/master/OpenShift-AppDev/labs/completed_project (if you run into issues with any of the piecemeal source code) 
 
   ![Congratulations](https://placehold.it/15/008000/000000?text=+) `Congratulations, you just completed the integration of the Quarkus lab and the DMN Decision Service
 `
