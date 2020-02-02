@@ -145,7 +145,7 @@ private JsonObject getDmnEvalBody() {
 
 ```
 
-Once again, click on **Assistant**->**Organize Imports**. Use the vertx JsonObject, the SLF4j Logger and LoggerFactory classes
+Once again, click on **Assistant**->**Organize Imports**. Use the vertx JsonObject, the SLF4j Logger and SLF4j LoggerFactory classes
 
 7. Now, we're ready to see our service in action. Go to the **Commands Pallette** and choose **Start Live Coding**
 
