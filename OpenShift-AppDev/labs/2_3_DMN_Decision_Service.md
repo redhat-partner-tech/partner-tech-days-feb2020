@@ -120,7 +120,7 @@ This is where the fun begins - you can now interact with the Decision Model that
 
 ![KieServer DMN Models Swagger UI](images/lab23_swagger_ui.png)
 
-Click on the DMN models section and pick the “GET” request to /server/containers/<containerId>/dmn , then click the **Try it Out** button
+Scroll down/click on the DMN models section and pick the “GET” request to /server/containers/<containerId>/dmn , then click the **Try it Out** button
 
 ![Swagger UI DMN Get](images/lab23_dmn_tryout.png)
 
