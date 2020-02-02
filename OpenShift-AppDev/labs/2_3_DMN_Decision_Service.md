@@ -65,7 +65,7 @@ A space is a logical grouping of projects in Business Central that helps users o
 
 ![Show MySpace Project](images/lab23_myspace_details.png)
 
-4. On the space details page, click on the “Try Samples” button, choose the “Traffic Violation” project and click “OK” to proceed with the import.
+4. On the space details page, click on the **Try Samples** button, choose the **Traffic Violation** project and click **OK** to proceed with the import.
 
 ![Try Samples](images/lab23_try_samples.png)
 
@@ -90,7 +90,10 @@ Based on these inputs, the DMN makes two decisions : whether a fine should be ap
 
 The decision table encodes a number of rules with the specific data points that are needed for the decision. You can see that the Deision Table can use special syntax (using the FEEL expression syntax) to indicate ranges (e.g. **[10..30)** or comparisons **>=30**)
 
-6. Play around with the Violation Scenarios and see how TDD is implemented in this space. Click on the **Validation Scenarios** Test Scenario to see the test scenarios run
+6. Play around with the Violation Scenarios and see how TDD is implemented in this space.
+In the menu path at the top, click on **Traffic_Violation** to display this list of **Traffic Violatons** then click on the **Validation Scenarios** Test Scenario to see the test scenarios run.
+
+![Violation Scenarios](images/traffic_violation_scenario.png)
 
 ![Decision Scenarios](images/lab23_decision_tests.png)
 
