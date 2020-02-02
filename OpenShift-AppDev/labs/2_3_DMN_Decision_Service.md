@@ -88,7 +88,7 @@ Based on these inputs, the DMN makes two decisions : whether a fine should be ap
 
 ![Decision table](images/lab23_decision_table.png)
 
-The decision table encodes a number of rules with the specific data points that are needed for the decision. You can see that the Deision Table can use special syntax (using the FEEL expression syntax) to indicate ranges (e.g. **[10..30)** or comparisons **>=30**)
+The decision table encodes a number of rules with the specific data points that are needed for the decision. You can see that the Decision Table can use special syntax (using the FEEL expression syntax) to indicate ranges (e.g. **[10..30)** or comparisons **>=30**)
 
 6. Play around with the Violation Scenarios and see how TDD is implemented in this space.
 
