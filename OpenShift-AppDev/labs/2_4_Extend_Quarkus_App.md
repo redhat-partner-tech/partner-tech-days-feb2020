@@ -5,6 +5,7 @@ In this lab, we will wrap the REST API exposed by Decision Manager (which is adm
 1. Create a ViolationResource class in the rest package that looks like this
 
 ```java
+@Path("/violation")
 public class ViolationResource {
  
    @GET
