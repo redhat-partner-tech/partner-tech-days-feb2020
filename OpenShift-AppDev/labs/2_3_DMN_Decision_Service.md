@@ -186,7 +186,7 @@ The top of the response gives us the key elements that we care about :
 * The correct **model-namespace** value
 * **Two inputs** that we will need to provide to invoke the decision service : *Driver* and *Violation*
 * **Two different decisions** that we can trigger *“Fine”* and *“Should driver be suspended?”*
-* If we navigate back to the DMN for the decision, and we choose the “**Data Model**” tab, we can see what properties we can set on the input models
+* If we navigate back to the DMN for the decision, and we choose the “**Data Model (Types)**” tab, we can see what properties we can set on the input models
 
 ![Data Model Properties](images/lab23_datamodel_props.png)
 
