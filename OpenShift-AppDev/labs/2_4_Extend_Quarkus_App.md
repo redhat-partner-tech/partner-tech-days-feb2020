@@ -29,7 +29,7 @@ Click on Assistant -> Organize imports to get the necessary jaxrs imports (use t
 
 ![Organize Imports example](images/lab24_organize_imports.png)
 
-2. Let’s add the Microprofile HTTP client service (based on https://quarkus.io/guides/rest-client and https://download.eclipse.org/microprofile/microprofile-rest-client-1.2.1/microprofile-rest-client-1.2.1.html). Technically, we could manually edit the pom.xml file and add all the necessary maven dependencies, but the Quarkus Maven plugin has a convenient command. The command below adds the necessary dependencies in our project so that we can create our service that will call into the Decision Manager REST API
+2. Let’s add the Microprofile HTTP client service (based on https://quarkus.io/guides/rest-client and https://download.eclipse.org/microprofile/microprofile-rest-client-1.2.1/microprofile-rest-client-1.2.1.html). Technically, we could manually edit the pom.xml file and add all the necessary maven dependencies, but the Quarkus Maven plugin has a convenient command. The command below adds the necessary dependencies in our project so that we can create our service that will call into the Decision Manager REST API. Run the following command from /projects/quarkus-workshop-labs
 
 ```bash
 mvn quarkus:add-extension -Dextensions="rest-client, quarkus-jackson, quarkus-resteasy-jackson, quarkus-jsonb"
