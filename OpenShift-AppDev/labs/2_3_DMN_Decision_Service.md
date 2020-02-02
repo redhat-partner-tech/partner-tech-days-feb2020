@@ -98,7 +98,7 @@ In the menu path at the top, click on **Traffic_Violation** to display this list
 
 ![Decision Scenarios](images/lab23_decision_tests.png)
 
-7. Whenever you’re satisfied with the logic of the model, navigate back to the main **Traffic Violation** assets screen, click on the Build button, and then on the Deploy Button. You should see some green success messages indicating that the decision is successfully deployed
+7. Whenever you’re satisfied with the logic of the model, navigate back to the main **Traffic Violation** assets screen, click on the **Build** button, and then on the **Deploy** Button. You should see some green success messages indicating that the decision is successfully deployed
 
 ![Decision Model Build Deploy](images/lab23_build_deploy.png)
 
