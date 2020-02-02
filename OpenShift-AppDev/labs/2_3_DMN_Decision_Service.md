@@ -94,7 +94,7 @@ The decision table encodes a number of rules with the specific data points that 
 
 In the menu path at the top, click on **Traffic_Violation** to display this list of **Traffic Violatons** then click on the **Validation Scenarios** Test Scenario to see the test scenarios run.
 
-![Violation Scenarios](images/traffic_violation_scenario.png)
+![Violation Scenarios](images/traffic_violation_scenarios.png)
 
 ![Decision Scenarios](images/lab23_decision_tests.png)
 
