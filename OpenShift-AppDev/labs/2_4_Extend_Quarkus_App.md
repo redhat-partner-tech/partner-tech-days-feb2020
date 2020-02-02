@@ -78,7 +78,7 @@ In short, the Microprofile REST client will inspect this service interface and w
   _`org.acme.people.service.DecisionService/mp-rest/scope=javax.inject.Singleton`_
 
 
-5. Inject the Decision Service in our REST resource and lean on it to call the kieserver (only showing the changes here). 
+5. Inject the Decision Service in our REST resource (ViolationResource) and lean on it to call the kieserver (only showing the changes here). 
    
 **NOTE**: Temporarily add couple of String values for the **authHeader** and **violationContainerId** parameters (to be dealt with a bit further down)
 
