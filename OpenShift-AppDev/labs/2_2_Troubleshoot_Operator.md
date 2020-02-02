@@ -138,8 +138,8 @@ oc secrets link default userNN-pamdm1-rhreg-secret --for=pull
 5. Now, re-import the images on the command line
 
 **$ oc import-image rhpam-businesscentral-rhel8 --from=registry.redhat.io/rhpam-7/rhpam-businesscentral-rhel8 --all --confirm imagestream.image.openshift.io/rhpam-businesscentral-rhel8 imported**
-....
 
+```bash
 Name:			rhpam-businesscentral-rhel8
 Namespace:		pam-dm1
 Created:		41 minutes ago
@@ -148,7 +148,7 @@ Annotations:		openshift.io/image.dockerRepositoryCheck=2019-12-11T09:29:26Z
 Image Repository:	image-registry.openshift-image-registry.svc:5000/pam-dm1/rhpam-businesscentral-rhel8
 Image Lookup:		local=false
 ....  Snipped ...
-....
+```
 
 **$ oc import-image rhpam-kieserver-rhel8 --from=registry.redhat.io/rhpam-7/rhpam-kieserver-rhel8 --all --confirm imagestream.image.openshift.io/rhpam-kieserver-rhel8 imported**
 
