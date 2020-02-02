@@ -65,7 +65,7 @@ public interface DecisionService {
 
 In short, the Microprofile REST client will inspect this service interface and will create an implementation that matches the desired behavior specified by the Annotations below :  
 * Call the URL indicated by the @Path annotation
-* **@Produces** and **@Consume**: It will consume and produce JSON
+* **@Produces** and **@Consumes**: It will consume and produce JSON
 * **@HeaderParam**: It will take an **authorization** parameter as a method argument and put it in the header of the request to the kieserver. 
    * It will also take a **containerId** parameter which will be used to reach the right path. 
    * The @Path annotation references the relative path to the DMN service that we deployed in Decision Manager
