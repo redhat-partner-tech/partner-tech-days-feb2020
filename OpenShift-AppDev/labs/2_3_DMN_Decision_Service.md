@@ -299,7 +299,7 @@ $ echo $AUTH
 YWRtaW5Vc2VyOlJlZEhhdA==
 ```
 
-* In Code Ready Worspaces project folder, create a file named "**violation-data.json**", paste the contents of the **body** parameter above into the file, and re-run the DMN curl execution, this time with the proper authentication
+* In Code Ready Workspaces projects folder, create a file named "**violation-data.json**", paste the contents of the **body** parameter above into the file, and re-run the DMN curl execution, this time with the proper authentication
 
 (note that I added a '-k' parameter to ignore the self signed certificate and added a "-d" parameter to reference the file with the body data)
 ```bash
