@@ -92,7 +92,7 @@ The decision table encodes a number of rules with the specific data points that 
 
 6. Play around with the Violation Scenarios and see how Test-Driven Development (TDD) is implemented in this space.
 
-In the menu path at the top, click on **Traffic_Violation** to display this list of **Traffic Violatons** then click on the **Validation Scenarios** Test Scenario to see the test scenarios run.
+In the menu path at the top, click on **Traffic_Violation** to display this list of **Traffic Violatons** then click on the **Violation Scenarios** Test Scenario to see the test scenarios run.
 
 ![Violation Scenarios](images/traffic_violation_scenarios.png)
 
