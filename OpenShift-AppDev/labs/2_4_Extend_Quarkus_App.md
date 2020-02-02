@@ -35,7 +35,7 @@ Click on Assistant -> Organize imports to get the necessary jaxrs imports (use t
 mvn quarkus:add-extension -Dextensions="rest-client, quarkus-jackson, quarkus-resteasy-jackson, quarkus-jsonb"
 ```
 
-3. Because we want to lean on the MiroProfile REST client, we will add a very simple service interface and annotate it appropriately (inside of org.acme.service package). Create a new Service: 
+3. Because we want to lean on the MircoProfile REST client, we will add a very simple service interface and annotate it appropriately (inside of org.acme.service package). Create a DecisionService class in the service package that looks like this: 
 
 ```java
 package org.acme.people.service;
