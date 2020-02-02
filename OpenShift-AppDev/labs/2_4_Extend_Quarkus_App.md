@@ -71,11 +71,11 @@ In short, the Microprofile REST client will inspect this service interface and w
    * The @Path annotation references the relative path to the DMN service that we deployed in Decision Manager
 * **@POST**:  the request body would be POST-ed to destination URL
 
-4. Update the *src/main/resources/application.properties* property file with the base URL that will be invoked for the DecisionService implementation (note that for this case I’m pointing it to the http route to the kieserver, not the https as the https route will need to deal with the self signed certificate). For the /mp-rest/url property, copy the URL of the *rhpam-trial-kieserver-http* route (if you use the https route, you will have to deal with the self signed certificate error, which we will skip for now)
+4. Update the *src/main/resources/application.properties* property file by adding the base URL that will be invoked for the DecisionService implementation (note that for this case I’m pointing it to the http route to the kieserver, not the https as the https route will need to deal with the self signed certificate). For the /mp-rest/url property, copy the URL of the *rhpam-trial-kieserver-http* route (if you use the https route, you will have to deal with the self signed certificate error, which we will skip for now)
 
-  _**`org.acme.people.service.DecisionService/mp-rest/url=http://rhpam-trial-kieserver-http-userNN-project.apps.<your-cluster-base-url>/`**_
+  _`org.acme.people.service.DecisionService/mp-rest/url=http://rhpam-trial-kieserver-http-userNN-project.apps.<your-cluster-base-url>/`_
  
-  _**`org.acme.people.service.DecisionService/mp-rest/scope=javax.inject.Singleton`**_
+  _`org.acme.people.service.DecisionService/mp-rest/scope=javax.inject.Singleton`_
 
 
 5. Inject the Decision Service in our REST resource and lean on it to call the kieserver (only showing the changes here). 
