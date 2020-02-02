@@ -63,11 +63,10 @@ public interface DecisionService {
 
 ```
 
-In short, this the Microprofile REST client will inspect this service interface and will create an implementaiton that matches the desired behavior specified by the Annotations below :  
-Call the URL indicated by the @Path annotation
-* **@Produces** and **Consume**: It will consume and produce JSON
-* **@HeaderParam**: It will take an **authorization** parameter as a method argument and put it in the header of the request to the kieserver
-* **HeaderParam**:  It will also take a **containerId** parameter which will be used to reach the right path. The @Path annotation references the relative path to the DMN service that we deployed in Decision Manager
+In short, the Microprofile REST client will inspect this service interface and will create an implementation that matches the desired behavior specified by the Annotations below :  
+* Call the URL indicated by the @Path annotation
+* **@Produces** and **@Consume**: It will consume and produce JSON
+* **@HeaderParam**: It will take an **authorization** parameter as a method argument and put it in the header of the request to the kieserver. It will also take a **containerId** parameter which will be used to reach the right path. The @Path annotation references the relative path to the DMN service that we deployed in Decision Manager
 * **@POST**:  the request body would be POST-ed to destination URL
 
 4. Update the *src/main/resources/application.properties* property file with the base URL that will be invoked for the DecisionService implementation (note that for this case I’m pointing it to the http route to the kieserver, not the https as the https route will need to deal with the self signed certificate). For the /mp-rest/url property, copy the URL of the *rhpam-trial-kieserver-http* route (if you use the https route, you will have to deal with the self signed certificate error, which we will skip for now)
