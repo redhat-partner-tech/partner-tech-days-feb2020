@@ -91,6 +91,7 @@ Based on these inputs, the DMN makes two decisions : whether a fine should be ap
 The decision table encodes a number of rules with the specific data points that are needed for the decision. You can see that the Deision Table can use special syntax (using the FEEL expression syntax) to indicate ranges (e.g. **[10..30)** or comparisons **>=30**)
 
 6. Play around with the Violation Scenarios and see how TDD is implemented in this space.
+
 In the menu path at the top, click on **Traffic_Violation** to display this list of **Traffic Violatons** then click on the **Validation Scenarios** Test Scenario to see the test scenarios run.
 
 ![Violation Scenarios](images/traffic_violation_scenario.png)
