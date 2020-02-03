@@ -58,7 +58,7 @@ spec:
  version: 7.5.1
 ```
 
-3. A space is a logical grouping of projects in Business Central that helps users organize their work. Click on **Menu->Projects** to display the available projects, then click on the **My Space** space.
+3. Click on **Menu->Projects** to display the available projects, then click on the **My Space** space.
 ![Show Menu Project](images/dm_menu_projects.png)
 
 A space is a logical grouping of projects in Business Central that helps users organize their work.
@@ -88,7 +88,7 @@ Based on these inputs, the DMN makes two decisions : whether a fine should be ap
 
 ![Decision table](images/lab23_decision_table.png)
 
-The decision table encodes a number of rules with the specific data points that are needed for the decision. You can see that the Decision Table can use special syntax (using the FEEL expression syntax) to indicate ranges (e.g. **[10..30)** or comparisons **>=30**)
+The decision table encodes a number of rules with the specific data points that are needed for the decision. You can see that the Decision Table can use special syntax (using the FEEL expression syntax) to indicate conditions (e.g. ranges such as **[10..30)** or comparisons **>=30**)
 
 6. Play around with the Violation Scenarios and see how Test-Driven Development (TDD) is implemented in this space.
 
@@ -103,20 +103,20 @@ In the menu path at the top, click on **Traffic_Violation** to display this list
 ![Decision Model Build Deploy](images/lab23_build_deploy.png)
 
 
-8. Now, navigate to the **Menu** -> **Deploy** -> **Execution servers** of Business Central. You will now observer that the Traffic Violation decision is deployed to the kieservers and that it can be started/stopped, etc.
+8. Now, navigate to the **Menu** -> **Deploy** -> **Execution servers** of Business Central. You will now observe that the Traffic Violation decision artifact (aka, a kiejar) is deployed to the kieservers and that it can be started/stopped, etc.
 
 ![Deploy Decision Service](images/lab23_deploy_decision_service.png)
 
 ## Explore the REST APIs available through the kieserver and Swagger UI
 
-This is where the fun begins - you can now interact with the Decision Model that you deployed through the REST APIs available through kieserver
+This is where the fun begins - you can now interact with the Decision Model that you deployed, through the REST APIs available through kieserver
 
-1. Go back to the OpenShift console, and navigate to **Networking** -> **Routes**, and copy the URL of the *rhpam-trial-kieserver* route. Paste it into a new browser window, and **append /docs** to the end of that URL, e.g: https://rhpam-trial-kieserver-http-userNN-project.apps.<your-openshift-base-url>/docs/
+1. Go back to the OpenShift console, and navigate to **Networking** -> **Routes**, and copy the URL of the *rhpam-trial-kieserver* route. Paste it into a new browser window, and append **/docs** to the end of that URL, e.g: https://rhpam-trial-kieserver-http-userNN-project.apps.<your-openshift-base-url>/docs/
 
 ![KieServer Docs URL](images/lab23_kieserver_docs_url.png)
 
 
-2. This opens up the Swagger UI console which allows us to play a little bit with the REST APIs. There are many different APIs to explore here, but we will focus on DMN at this time.
+2. This opens up the Swagger UI console which allows us to explore the REST APIs exposed by the DM runtime (kieserver). There are many different APIs to explore here, but we will focus on DMN at this time.
 
 ![KieServer DMN Models Swagger UI](images/lab23_swagger_ui.png)
 
@@ -186,12 +186,12 @@ The top of the response gives us the key elements that we care about :
 * The correct **model-namespace** value
 * **Two inputs** that we will need to provide to invoke the decision service : *Driver* and *Violation*
 * **Two different decisions** that we can trigger *“Fine”* and *“Should driver be suspended?”*
-* If we navigate back to the DMN for the decision, and we choose the “**Data Model (Types)**” tab, we can see what properties we can set on the input models
+* If we navigate back to the DMN for the decision, and we choose the **Data Model (Types)** tab, we can see what properties we can set on the input models
 
 ![Data Model Properties](images/lab23_datamodel_props.png)
 
 
-5. With that information (and based on the Decision Manager documentation), we can now move on to executing the DMN using the POST method body in the Swagger UI:
+5. With that information (and based on the Decision Manager documentation), we can now move on to executing the DMN using the POST method body in the Swagger UI (more details on executing DMN models through the REST API are available in the [Decision Manager Documentation](https://access.redhat.com/documentation/en-us/red_hat_decision_manager/7.6/html/designing_a_decision_service_using_dmn_models/dmn-execution-con#dmn-execution-rest-proc) ):
 
 
 
@@ -291,7 +291,7 @@ akochnev@localhost quarkus-kieserver-client]$ curl -k -X POST "https://rhpam-tri
 ```
 
 7. Let's try again exercising the REST API, this time on the Code Ready Workspaces command line:
-* Do base64 encoding on the username/password to allow passing the credentials with basic auth to curl
+* Do base64 encoding on the username/password to allow passing the credentials with basic authentication to curl
 
 ```bash
 $ AUTH=$(echo -ne "adminUser:RedHat" | base64 --wrap 0)
