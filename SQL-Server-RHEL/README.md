@@ -72,7 +72,7 @@ You will need to SSH from your laptop to the WORKSTATION then to NODE1 so we can
 
 ssh student@"<workstation_External_Hostname>" 
 
-_`ie. ssh student@rhel8-lab-<guid>.rhpds.opentlc.com`_
+_`ie. ssh student@rhel8lab-<guid>.rhpds.opentlc.com`_
 
 ssh student@node1
   
