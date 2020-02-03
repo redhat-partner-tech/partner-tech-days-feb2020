@@ -2,7 +2,7 @@ A Set of Lab Exercises organized by Matt St. Onge, Jack Waterworth, & John Tietj
 
 v1.1  2/3/2020
 
-[Lab Environment - Raleigh](https://www.opentlc.com/gg/gg.cgi?profile=generic_na_arwinata-redhat.com)
+[Lab Environment - Raleigh](https://www.opentlc.com/gg/gg.cgi?profile=generic_na_arwinata-redhat.com) Select SQL - SQL Open Lab
 
 
 
