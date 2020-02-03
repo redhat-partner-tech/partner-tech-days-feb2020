@@ -7,7 +7,7 @@ The Red Hat infrastructure migration solution helps to break the cycle of expens
 The solution includes point and click tooling that provides mass migration capabilities, special pricing, and standardized deployment patterns from VMware to Red Hat Virtualization, Red Hat OpenStack Platform, and/or Red Hat Hyperconverged Infrastructure for Virtualization. 
 
 **IMS Open Lab Environments:**
-- [Raleigh, 2/3](https://example.com)
+- [Raleigh, 2/3](https://www.opentlc.com/gg/gg.cgi?profile=generic_na_arwinata-redhat.com)
 - Toronto, 2/4
 - Montreal, 2/6
 - Orlando, 2/6
