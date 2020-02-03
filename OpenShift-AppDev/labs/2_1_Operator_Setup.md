@@ -25,7 +25,7 @@ In OpenShift 4.2 the installation of Process Automation Manager (PAM) or Decisio
 ![Operator Subscription - Up to date](images/lab21_subscribed_operator.png)
 
 
-5. Log out from the "privileged" account (e.g. user<100+NN>) and log back in as the "regular" user account (userNN). Now, navigate to the the **Catalog** -> **Installed Opreators** from the main menu. You should see the newly subscribed Business Automation operator. Click into the operator tile, and on the Operator details page, click the “Create Instance” link/button
+5. Log out from the "privileged" account (e.g. user<100+NN>) and log back in as the "regular" user account (userNN). Now, navigate to the the **Catalog** -> **Installed Opreators** from the main menu. You should see the newly subscribed Business Automation operator. 
 
 ![Installed BA Operator](images/lab2_installed_ba_operator.png)
 
