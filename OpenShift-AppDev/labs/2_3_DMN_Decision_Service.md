@@ -111,7 +111,7 @@ In the menu path at the top, click on **Traffic_Violation** to display this list
 
 This is where the fun begins - you can now interact with the Decision Model that you deployed through the REST APIs available through kieserver
 
-1. Go back to the OpenShift console, and navigate to **Networking** -> **Routes**, and copy the URL of the *rhpam-trial-kieserver* route. Paste it into a new browser window, and append /docs to the end of that URL, e.g: https://rhpam-trial-kieserver-http-userNN-project.apps.<your-openshift-base-url>/docs/
+1. Go back to the OpenShift console, and navigate to **Networking** -> **Routes**, and copy the URL of the *rhpam-trial-kieserver* route. Paste it into a new browser window, and **append /docs** to the end of that URL, e.g: https://rhpam-trial-kieserver-http-userNN-project.apps.<your-openshift-base-url>/docs/
 
 ![KieServer Docs URL](images/lab23_kieserver_docs_url.png)
 
