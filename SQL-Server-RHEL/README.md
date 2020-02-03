@@ -2,6 +2,11 @@ A Set of Lab Exercises organized by Matt St. Onge, Jack Waterworth, & John Tietj
 
 v1.1  2/3/2020
 
+[Lab Environment - Raleigh](https://example.com)
+
+
+
+
 # SQLonRHEL
 Workshop for SQL on RHEL 8.x systems
 Thanks in advance to Microsoft  for their excellent reference materials which made this possible
