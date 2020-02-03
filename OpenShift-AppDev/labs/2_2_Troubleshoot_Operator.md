@@ -1,6 +1,6 @@
 # Operator-driven installation troubleshooting
 
-From the **Status** column of the **rhpam-trial-kieserver** and **rhpam-trial-rhpamcentr** deployment configs, it appears that Deployment Configs that are responsible for rolling out the necessary pods are unable to create the necessary pods for the installation. The number of pods for both deployment configs continues staying at “0 of 1” and the installation is not proceeding.
+From the **Status** column of the **rhpam-trial-kieserver** and **rhpam-trial-rhpamcentr** deployment configs, it appears that the Deployment Configs that are responsible for rolling out the necessary pods are unable to create the necessary pods for the installation. The number of pods for both deployment configs continues staying at “0 of 1” and the installation is not proceeding.
 
 1. Navigate to **Workloads** -> **Pods** and click on the *business-automation-operator-...* pod.
 
