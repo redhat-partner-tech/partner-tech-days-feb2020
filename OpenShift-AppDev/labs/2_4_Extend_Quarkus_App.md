@@ -5,6 +5,7 @@ In this lab, we will wrap the REST API exposed by Decision Manager (which is adm
 1. Create a ViolationResource class in the rest package that looks like this
 
 ```java
+@Path("/violation")
 public class ViolationResource {
  
    @GET
@@ -29,13 +30,13 @@ Click on Assistant -> Organize imports to get the necessary jaxrs imports (use t
 
 ![Organize Imports example](images/lab24_organize_imports.png)
 
-2. Let’s add the Microprofile HTTP client service (based on https://quarkus.io/guides/rest-client and https://download.eclipse.org/microprofile/microprofile-rest-client-1.2.1/microprofile-rest-client-1.2.1.html). Technically, we could manually edit the pom.xml file and add all the necessary maven dependencies, but the Quarkus Maven plugin has a convenient command. The command below adds the necessary dependencies in our project so that we can create our service that will call into the Decision Manager REST API
+2. Let’s add the Microprofile HTTP client service (based on https://quarkus.io/guides/rest-client and https://download.eclipse.org/microprofile/microprofile-rest-client-1.2.1/microprofile-rest-client-1.2.1.html). Technically, we could manually edit the pom.xml file and add all the necessary maven dependencies, but the Quarkus Maven plugin has a convenient command. The command below adds the necessary dependencies in our project so that we can create our service that will call into the Decision Manager REST API. Run the following command from /projects/quarkus-workshop-labs
 
 ```bash
 mvn quarkus:add-extension -Dextensions="rest-client, quarkus-jackson, quarkus-resteasy-jackson, quarkus-jsonb"
 ```
 
-3. Because we want to lean on the MiroProfile REST client, we will add a very simple service interface and annotate it appropriately (inside of org.acme.service package). Create a new Service: 
+3. Because we want to lean on the MicroProfile REST client, we will add a very simple service interface and annotate it appropriately (inside of org.acme.service package). Create a DecisionService class in the service package that looks like this: 
 
 ```java
 package org.acme.people.service;
@@ -63,22 +64,22 @@ public interface DecisionService {
 
 ```
 
-In short, this the Microprofile REST client will inspect this service interface and will create an implementaiton that matches the desired behavior specified by the Annotations below :  
-Call the URL indicated by the @Path annotation
-* **@Produces** and **Consume**: It will consume and produce JSON
-* **@HeaderParam**: It will take an **authorization** parameter as a method argument and put it in the header of the request to the kieserver
-* **HeaderParam**:  It will also take a **containerId** parameter which will be used to reach the right path. The @Path annotation references the relative path to the DMN service that we deployed in Decision Manager
+In short, the Microprofile REST client will inspect this service interface and will create an implementation that matches the desired behavior specified by the Annotations below :  
+* Call the URL indicated by the @Path annotation
+* **@Produces** and **@Consumes**: It will consume and produce JSON
+* **@HeaderParam**: It will take an **authorization** parameter as a method argument and put it in the header of the request to the kieserver. 
+   * It will also take a **containerId** parameter which will be used to reach the right path. 
+   * The @Path annotation references the relative path to the DMN service that we deployed in Decision Manager
 * **@POST**:  the request body would be POST-ed to destination URL
 
-4. Update the *src/main/resources/application.properties* property file with the base URL that will be invoked for the DecisionService implementation (note that for this case I’m pointing it to the http route to the kieserver, not the https as the https route will need to deal with the self signed certificate). For the /mp-rest/url property, copy the URL of the *rhpam-trial-kieserver-http* route (if you use the https route, you will have to deal with the self signed certificate error, which we will skip for now)
+4. Update the *src/main/resources/application.properties* property file by adding the base URL that will be invoked for the DecisionService implementation (note that for this case I’m pointing it to the http route to the kieserver, not the https as the https route will need to deal with the self signed certificate). For the /mp-rest/url property, copy the URL of the *rhpam-trial-kieserver-http* route (if you use the https route, you will have to deal with the self signed certificate error, which we will skip for now)
 
-```properties
-org.acme.people.service.DecisionService/mp-rest/url=http://rhpam-trial-kieserver-http-userNN-project.apps.<your-cluster-base-url>/
-org.acme.people.service.DecisionService/mp-rest/scope=javax.inject.Singleton
+  _`org.acme.people.service.DecisionService/mp-rest/url=http://rhpam-trial-kieserver-http-userNN-project.apps.<your-cluster-base-url>/`_
+ 
+  _`org.acme.people.service.DecisionService/mp-rest/scope=javax.inject.Singleton`_
 
-```
 
-5. Inject the Decision Service in our REST resource and lean on it to call the kieserver (only showing the changes here). 
+5. Inject the Decision Service in our REST resource (ViolationResource) and lean on it to call the kieserver (only showing the changes here). 
    
 **NOTE**: Temporarily add couple of String values for the **authHeader** and **violationContainerId** parameters (to be dealt with a bit further down)
 
@@ -145,7 +146,7 @@ private JsonObject getDmnEvalBody() {
 
 ```
 
-Once again, click on **Assistant**->**Organize Imports**. Use the vertx JsonObject, the SLF4j Logger and LoggerFactory classes
+Once again, click on **Assistant**->**Organize Imports**. Use the vertx JsonObject, the SLF4j Logger and SLF4j LoggerFactory classes
 
 7. Now, we're ready to see our service in action. Go to the **Commands Pallette** and choose **Start Live Coding**
 

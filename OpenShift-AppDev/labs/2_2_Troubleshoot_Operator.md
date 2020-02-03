@@ -138,7 +138,9 @@ oc secrets link default userNN-pamdm1-rhreg-secret --for=pull
 5. Now, re-import the images on the command line by running the (two) following commands:
 
 ```bash
-oc import-image rhpam-businesscentral-rhel8 --from=registry.redhat.io/rhpam-7/rhpam-businesscentral-rhel8 --all --confirm imagestream.image.openshift.io/rhpam-businesscentral-rhel8 imported
+oc import-image rhpam-businesscentral-rhel8 --from=registry.redhat.io/rhpam-7/rhpam-businesscentral-rhel8 --all --confirm
+
+imagestream.image.openshift.io/rhpam-businesscentral-rhel8 imported
 
 Name:			rhpam-businesscentral-rhel8
 Namespace:		pam-dm1
@@ -151,7 +153,9 @@ Image Lookup:		local=false
 ```
 
 ```bash
-$ oc import-image rhpam-kieserver-rhel8 --from=registry.redhat.io/rhpam-7/rhpam-kieserver-rhel8 --all --confirm imagestream.image.openshift.io/rhpam-kieserver-rhel8 imported
+$ oc import-image rhpam-kieserver-rhel8 --from=registry.redhat.io/rhpam-7/rhpam-kieserver-rhel8 --all --confirm
+
+imagestream.image.openshift.io/rhpam-kieserver-rhel8 imported
 
 Name:			rhpam-kieserver-rhel8
 Namespace:		pam-dm1

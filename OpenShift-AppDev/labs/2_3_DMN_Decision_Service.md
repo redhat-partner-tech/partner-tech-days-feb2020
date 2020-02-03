@@ -88,11 +88,11 @@ Based on these inputs, the DMN makes two decisions : whether a fine should be ap
 
 ![Decision table](images/lab23_decision_table.png)
 
-The decision table encodes a number of rules with the specific data points that are needed for the decision. You can see that the Deision Table can use special syntax (using the FEEL expression syntax) to indicate ranges (e.g. **[10..30)** or comparisons **>=30**)
+The decision table encodes a number of rules with the specific data points that are needed for the decision. You can see that the Decision Table can use special syntax (using the FEEL expression syntax) to indicate ranges (e.g. **[10..30)** or comparisons **>=30**)
 
-6. Play around with the Violation Scenarios and see how TDD is implemented in this space.
+6. Play around with the Violation Scenarios and see how Test-Driven Development (TDD) is implemented in this space.
 
-In the menu path at the top, click on **Traffic_Violation** to display this list of **Traffic Violatons** then click on the **Validation Scenarios** Test Scenario to see the test scenarios run.
+In the menu path at the top, click on **Traffic_Violation** to display this list of **Traffic Violatons**, then click on the **Violation Scenarios** Test Scenario, then click the Validation [>] button to see the test scenarios run.
 
 ![Violation Scenarios](images/traffic_violation_scenarios.png)
 
@@ -120,7 +120,7 @@ This is where the fun begins - you can now interact with the Decision Model that
 
 ![KieServer DMN Models Swagger UI](images/lab23_swagger_ui.png)
 
-Click on the DMN models section and pick the “GET” request to /server/containers/<containerId>/dmn , then click the **Try it Out** button
+Scroll down/click on the DMN models section and pick the “GET” request to /server/containers/<containerId>/dmn , then click the **Try it Out** button
 
 ![Swagger UI DMN Get](images/lab23_dmn_tryout.png)
 
@@ -186,7 +186,7 @@ The top of the response gives us the key elements that we care about :
 * The correct **model-namespace** value
 * **Two inputs** that we will need to provide to invoke the decision service : *Driver* and *Violation*
 * **Two different decisions** that we can trigger *“Fine”* and *“Should driver be suspended?”*
-* If we navigate back to the DMN for the decision, and we choose the “**Data Model**” tab, we can see what properties we can set on the input models
+* If we navigate back to the DMN for the decision, and we choose the “**Data Model (Types)**” tab, we can see what properties we can set on the input models
 
 ![Data Model Properties](images/lab23_datamodel_props.png)
 
@@ -299,7 +299,7 @@ $ echo $AUTH
 YWRtaW5Vc2VyOlJlZEhhdA==
 ```
 
-* In Code Ready Worspaces project folder, create a file named "**violation-data.json**", paste the contents of the **body** parameter above into the file, and re-run the DMN curl execution, this time with the proper authentication
+* In Code Ready Workspaces projects folder, create a file named "**violation-data.json**", paste the contents of the **body** parameter above into the file, and re-run the DMN curl execution, this time with the proper authentication
 
 (note that I added a '-k' parameter to ignore the self signed certificate and added a "-d" parameter to reference the file with the body data)
 ```bash
