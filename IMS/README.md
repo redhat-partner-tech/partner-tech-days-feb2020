@@ -17,8 +17,8 @@ The solution includes point and click tooling that provides mass migration capab
 - Cincinnati, 2/20
 
 **Lab Notes (Please read):**
-- It will take approximately XX mins to complete this lab
-  - Note that Lab Step "7.2. Launch Migration" (the actual migration) will take YY mins to complete
+- It will take approximately 30 mins to complete this lab. 
+  - Note that Lab Step "7.2. Launch Migration" (the actual migration) will take 60-90 mins to complete
 - Since the lab environment is already created for you, skip sections 1-3. 
 - Start at section 4. Environment
 - In section 5. Getting Started, follow RHTE sub-section
