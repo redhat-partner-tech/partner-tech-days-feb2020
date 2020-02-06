@@ -18,9 +18,9 @@ CodeReady Workspaces credentials for attendees: userNN / passNN
 ** Openshift API for command line 'oc' client: https://api.cluster-bcbsma-f924.bcbsma-f924.example.opentlc.com:6443
 
 * *Montreal* : February 6
-** link:https://console-openshift-console.apps.cluster-cinci-5f0d.cinci-5f0d.open.redhat.com[Openshift Master Console^]
-** link:http://codeready-che.apps.cluster-cinci-5f0d.cinci-5f0d.open.redhat.com[Code Ready Console^]
-** Openshift API for command line 'oc' client: https://api.cluster-bcbsma-f924.bcbsma-f924.example.opentlc.com:6443
+** link:https://console-openshift-console.apps.cluster-montreal-f421.montreal-f421.open.redhat.com[Openshift Master Console^]
+** link:http://codeready-che.apps.cluster-montreal-f421.montreal-f421.open.redhat.com[Code Ready Console^]
+** Openshift API for command line 'oc' client: https://api.cluster-montreal-f421.montreal-f421.open.redhat.com:6443
 
 * *Orlando* : February 6
 ** link:https://console-openshift-console.apps.cluster-cinci-5f0d.cinci-5f0d.open.redhat.com[Openshift Master Console^]
