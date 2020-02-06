@@ -1,6 +1,11 @@
 A Set of Lab Exercises organized by Matt St. Onge, Jack Waterworth, & John Tietjen
 
-v1.0  1/31/2020
+v1.1  2/3/2020
+
+[Lab Environment - Raleigh](https://www.opentlc.com/gg/gg.cgi?profile=generic_na_arwinata-redhat.com)  Then, Select *SQL - SQL Open Lab*
+
+
+
 
 # SQLonRHEL
 Workshop for SQL on RHEL 8.x systems
@@ -10,25 +15,21 @@ Thanks in advance to Microsoft  for their excellent reference materials which ma
 # TABLE OF CONTENTS
 LAB ONE - Introducing MS SQL Server
 
-  [Getting Started](https://github.com/mattstonge/SQLonRHEL/blob/master/README.md#prereqisites)
-
-  [Install SQLServer](https://github.com/mattstonge/SQLonRHEL/blob/master/README.md#install-sqlserver)
-     
-  [Install the Commandline Tools](https://github.com/mattstonge/SQLonRHEL#install-the-commandline-tools)
-  
-  [Connect to SQLServer](https://github.com/mattstonge/SQLonRHEL#connect-to-your-new-sql-server)
-
+  [LAB ONE](https://github.com/redhat-partner-tech/partner-tech-days-feb2020/blob/master/SQL-Server-RHEL/README.md)
 
 LAB TWO  - Importing/Recovery of a Database
 
-  [Exercises](https://github.com/mattstonge/SQLonRHEL/blob/master/LABTWO.md) 
+  [Exercises](https://github.com/redhat-partner-tech/partner-tech-days-feb2020/blob/master/SQL-Server-RHEL/LABTWO.md) 
 
 LAB THREE  - Security / Best Practices
 
-  [EXERCISES](https://github.com/mattstonge/SQLonRHEL/blob/master/LABTHREE.md)
+  [EXERCISES](https://github.com/redhat-partner-tech/partner-tech-days-feb2020/blob/master/SQL-Server-RHEL/LABTHREE.md)
 
 
 Session Presentation Slides
+
+  [Slides](https://github.com/redhat-partner-tech/partner-tech-days-feb2020/blob/master/SQL-Server-RHEL/SQL_on_RHEL_PTD_presentation_FEB2020.pdf)
+
 
 
 
@@ -70,6 +71,8 @@ You will need to SSH from your laptop to the WORKSTATION then to NODE1 so we can
 ---
 
 ssh student@"<workstation_External_Hostname>" 
+
+_`ie. ssh student@rhel8lab-<guid>.rhpds.opentlc.com`_
 
 ssh student@node1
   
