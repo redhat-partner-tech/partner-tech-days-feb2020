@@ -10,7 +10,7 @@ The solution includes point and click tooling that provides mass migration capab
 - [Raleigh, 2/3](https://www.opentlc.com/gg/gg.cgi?profile=generic_na_arwinata-redhat.com)
 - Toronto, 2/4
 - Montreal, 2/6
-- Orlando, 2/6
+- [Orlando, 2/6](https://www.opentlc.com/gg/gg.cgi?profile=generic_na_arwinata-redhat.com)
 - Denver, 2/13
 - Irvine, 2/18
 - Scottsdale, 2/19
