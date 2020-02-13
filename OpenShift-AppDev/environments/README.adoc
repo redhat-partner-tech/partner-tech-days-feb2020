@@ -28,9 +28,9 @@ CodeReady Workspaces credentials for attendees: userNN / passNN
 ** Openshift API for command line 'oc' client:  https://api.cluster-mco1-2e16.mco1-2e16.open.redhat.com:6443
 
 * *Denver* : February 13
-** link:http://console-openshift-console.apps.cluster-colorado-f432.colorado-f432.open.redhat.com[Openshift Master Console^]
-** link:http://codeready-che.apps.cluster-colorado-f432.colorado-f432.open.redhat.com[Code Ready Console^]
-** Openshift API for command line 'oc' client: https://api.cluster-colorado-f432.colorado-f432.open.redhat.com:6443
+** link:https://console-openshift-console.apps.cluster-col-ce2f.col-ce2f.open.redhat.com[Openshift Master Console^]
+** link:http://codeready-che.apps.cluster-col-ce2f.col-ce2f.open.redhat.com[Code Ready Console^]
+** Openshift API for command line 'oc' client: https://api.cluster-col-ce2f.col-ce2f.open.redhat.com:6443
 
 * *Irvine* : February 18
 ** link:https://console-openshift-console.apps.cluster-cinci-5f0d.cinci-5f0d.open.redhat.com[Openshift Master Console^]
