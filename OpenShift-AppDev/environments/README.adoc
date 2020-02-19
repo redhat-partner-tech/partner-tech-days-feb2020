@@ -35,10 +35,10 @@ CodeReady Workspaces credentials for attendees: userNN / passNN
 * *Irvine* : February 18
 ** link:https://console-openshift-console.apps.cluster-irvine-aeef.irvine-aeef.open.redhat.com[Openshift Master Console^]
 ** link:http://codeready-che.apps.cluster-irvine-aeef.irvine-aeef.open.redhat.com[Code Ready Console^]
-** Openshift API for command line 'oc' client:  https://api.cluster-irvine-aeef.irvine-aeef.open.redhat.com:6443
+** Openshift API for command line 'oc' client: https://api.cluster-irvine-aeef.irvine-aeef.open.redhat.com:6443
 
 * *Scottsdale* : February 19
-** link:https://console-openshift-console.apps.cluster-scottsd-4f12.scottsd-4f12.open.redhat.com [Openshift Master Console^]
+** link:https://console-openshift-console.apps.cluster-scottsd-4f12.scottsd-4f12.open.redhat.com[Openshift Master Console^]
 ** link:http://codeready-che.apps.cluster-scottsd-4f12.scottsd-4f12.open.redhat.com[Code Ready Console^]
 ** Openshift API for command line 'oc' client: https://api.cluster-scottsd-4f12.scottsd-4f12.open.redhat.com:6443
 
